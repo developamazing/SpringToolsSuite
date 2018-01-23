@@ -21,8 +21,10 @@ public class Buildings implements Serializable {
 	@Column(name = "BUILDINGNAME")
 	private String buildingName;
 	@Column(name = "NOOFAPARMENTS")
-	private String noOfAparments;
+	private String noOfAparments; // int
 
+	Boolean isRentable;
+	
 	public Integer getBuildingNo() {
 		return buildingNo;
 	}
