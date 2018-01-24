@@ -2,15 +2,15 @@ package com.bis.nj.service;
 
 import java.util.List;
 
-import com.bis.nj.model.Details;
+import com.bis.nj.model.GillLaneModel;
 
 public interface GillLaneService {
 	
-	public Details addMember(Details details) throws Exception;
+	public GillLaneModel addMember(GillLaneModel details) throws Exception;
 	
-	public List<Details> getMembers() throws Exception;
+	public List<GillLaneModel> getMembers() throws Exception;
 
-	public Details updateMember(Details details) throws Exception;
+	public GillLaneModel updateMember(GillLaneModel details) throws Exception;
 
 
 }

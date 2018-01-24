@@ -1,17 +1,16 @@
 package com.bis.nj.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="MEMBERDETAILS")
-public class Details implements Serializable {
+public class GillLaneModel implements Serializable {
 
 	private static final long serialVersionUID = -8431057680523826961L;
 
@@ -26,9 +25,49 @@ public class Details implements Serializable {
 	private String emailId;
 	@Column(name="PHONENO")
 	private String phoneno;
-
+	@Column(name="CREATEDBY")
+	private Integer createdBy;
+	@Column(name="UPDATEDBY")
+	private String updatedBy;
+	@Column(name="CREATEDON")
+	private Date createdOn;
+	@Column(name="ISTENANT")
+	private String isTenant;
+	
 	public Integer getMemberId() {
 		return memberId;
+	}
+
+	public Integer getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Integer createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getIsTenant() {
+		return isTenant;
+	}
+
+	public void setIsTenant(String isTenant) {
+		this.isTenant = isTenant;
 	}
 
 	public void setMemberId(Integer memberId) {
@@ -87,7 +126,7 @@ public class Details implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Details other = (Details) obj;
+		GillLaneModel other = (GillLaneModel) obj;
 		if (address == null) {
 			if (other.address != null)
 				return false;
