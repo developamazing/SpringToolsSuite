@@ -7,10 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.log4j.Logger;
+
 @Entity
 //@javax.persistence.Table(name="ASSS")
 @Table(name = "ASSS")
 public class ApartmentStatus implements Serializable {
+	
+	private final Logger logger = Logger.getLogger(ApartmentStatus.class);
 
 	/**
 	 * 
@@ -95,6 +99,7 @@ public class ApartmentStatus implements Serializable {
 	}
 	@Override
 	public String toString() {
+		logger.info("Inside tostring method");
 		return "ApartmentStatus [buildingNo=" + buildingNo + ", buildingName=" + buildingName + ", totalno=" + totalno
 				+ ", available=" + available + "]";
 	}
