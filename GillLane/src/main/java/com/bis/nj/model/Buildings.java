@@ -1,6 +1,7 @@
 package com.bis.nj.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,11 +21,25 @@ public class Buildings implements Serializable {
 
 	@Column(name = "BUILDINGNAME")
 	private String buildingName;
-	@Column(name = "NOOFAPARMENTS")
-	private String noOfAparments; // int
-
-	Boolean isRentable;
 	
+	@Column(name = "NOOFAPARMENTS")
+	private Integer noOfAparments; 
+
+	@Column(name = "ISRENTABLE")
+	private Boolean isRentable;
+	
+	@Column(name = "CREATEDBY")
+	private String createdBy; 
+	
+	@Column(name = "CREATEDTIME")
+	private Date createdTime; 
+	
+	@Column(name = "LASTUPDATEDBY")
+	private String lastUpdatedBy; 
+	
+	@Column(name = "LASTUPDATEDTIME")
+	private Date lastUpdateTime;
+
 	public Integer getBuildingNo() {
 		return buildingNo;
 	}
@@ -41,12 +56,52 @@ public class Buildings implements Serializable {
 		this.buildingName = buildingName;
 	}
 
-	public String getNoOfAparments() {
+	public Integer getNoOfAparments() {
 		return noOfAparments;
 	}
 
-	public void setNoOfAparments(String noOfAparments) {
+	public void setNoOfAparments(Integer noOfAparments) {
 		this.noOfAparments = noOfAparments;
+	}
+
+	public Boolean getIsRentable() {
+		return isRentable;
+	}
+
+	public void setIsRentable(Boolean isRentable) {
+		this.isRentable = isRentable;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	public void setLastUpdatedBy(String lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
+
+	public Date getLastUpdateTime() {
+		return lastUpdateTime;
+	}
+
+	public void setLastUpdateTime(Date lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
 	}
 
 	@Override
@@ -55,6 +110,11 @@ public class Buildings implements Serializable {
 		int result = 1;
 		result = prime * result + ((buildingName == null) ? 0 : buildingName.hashCode());
 		result = prime * result + ((buildingNo == null) ? 0 : buildingNo.hashCode());
+		result = prime * result + ((createdBy == null) ? 0 : createdBy.hashCode());
+		result = prime * result + ((createdTime == null) ? 0 : createdTime.hashCode());
+		result = prime * result + ((isRentable == null) ? 0 : isRentable.hashCode());
+		result = prime * result + ((lastUpdateTime == null) ? 0 : lastUpdateTime.hashCode());
+		result = prime * result + ((lastUpdatedBy == null) ? 0 : lastUpdatedBy.hashCode());
 		result = prime * result + ((noOfAparments == null) ? 0 : noOfAparments.hashCode());
 		return result;
 	}
@@ -78,6 +138,31 @@ public class Buildings implements Serializable {
 				return false;
 		} else if (!buildingNo.equals(other.buildingNo))
 			return false;
+		if (createdBy == null) {
+			if (other.createdBy != null)
+				return false;
+		} else if (!createdBy.equals(other.createdBy))
+			return false;
+		if (createdTime == null) {
+			if (other.createdTime != null)
+				return false;
+		} else if (!createdTime.equals(other.createdTime))
+			return false;
+		if (isRentable == null) {
+			if (other.isRentable != null)
+				return false;
+		} else if (!isRentable.equals(other.isRentable))
+			return false;
+		if (lastUpdateTime == null) {
+			if (other.lastUpdateTime != null)
+				return false;
+		} else if (!lastUpdateTime.equals(other.lastUpdateTime))
+			return false;
+		if (lastUpdatedBy == null) {
+			if (other.lastUpdatedBy != null)
+				return false;
+		} else if (!lastUpdatedBy.equals(other.lastUpdatedBy))
+			return false;
 		if (noOfAparments == null) {
 			if (other.noOfAparments != null)
 				return false;
@@ -88,8 +173,25 @@ public class Buildings implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Buildings [buildingNo=" + buildingNo + ", buildingName=" + buildingName + ", noOfAparments="
-				+ noOfAparments + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Buildings [buildingNo=");
+		builder.append(buildingNo);
+		builder.append(", buildingName=");
+		builder.append(buildingName);
+		builder.append(", noOfAparments=");
+		builder.append(noOfAparments);
+		builder.append(", isRentable=");
+		builder.append(isRentable);
+		builder.append(", createdBy=");
+		builder.append(createdBy);
+		builder.append(", createdTime=");
+		builder.append(createdTime);
+		builder.append(", lastUpdatedBy=");
+		builder.append(lastUpdatedBy);
+		builder.append(", lastUpdateTime=");
+		builder.append(lastUpdateTime);
+		builder.append("]");
+		return builder.toString();
 	}
-
+		
 }
