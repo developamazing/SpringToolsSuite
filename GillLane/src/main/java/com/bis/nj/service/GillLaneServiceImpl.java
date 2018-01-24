@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bis.nj.dao.GillLaneDao;
-import com.bis.nj.model.Details;
+import com.bis.nj.model.GillLaneModel;
 
 @Service
 public class GillLaneServiceImpl implements GillLaneService {
@@ -19,19 +19,19 @@ public class GillLaneServiceImpl implements GillLaneService {
 	private GillLaneDao dao;
 
 	@Override
-	public Details addMember(Details details) throws Exception {
+	public GillLaneModel addMember(GillLaneModel details) throws Exception {
 		dao.saveAndFlush(details);
 		return details;
 	}
 	
 	@Override
-	public List<Details> getMembers() throws Exception {
+	public List<GillLaneModel> getMembers() throws Exception {
 		log.info("in service class");
 		return dao.findAll();
 	}
 
 	@Override
-	public Details updateMember(Details details) throws Exception {
+	public GillLaneModel updateMember(GillLaneModel details) throws Exception {
 		// TODO Auto-generated method stub 
 		if (Objects.equals(null, dao.findOne(details.getMemberId()))){
 			throw new IllegalArgumentException("no user found");

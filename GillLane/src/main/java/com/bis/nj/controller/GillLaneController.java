@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bis.nj.model.Details;
+import com.bis.nj.model.GillLaneModel;
 import com.bis.nj.service.GillLaneService;
 
 @RestController
@@ -20,7 +20,7 @@ public class GillLaneController {
 	private GillLaneService service;
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public void addMember(@RequestBody Details details) {
+	public void addMember(@RequestBody GillLaneModel details) {
 		try {
 			service.addMember(details);
 		}
@@ -30,7 +30,7 @@ public class GillLaneController {
 	}
 	
 	@RequestMapping(value="/members",method=RequestMethod.GET)
-	public List<Details> getMembers() {
+	public List<GillLaneModel> getMembers() {
 		try {
 			return service.getMembers();
 		}
@@ -41,14 +41,14 @@ public class GillLaneController {
 	}
 	
 	@RequestMapping(value="/update",method=RequestMethod.PUT)
-	public Details updateMember(@RequestBody Details details) {
+	public GillLaneModel updateMember(@RequestBody GillLaneModel details) {
 		try {
 			return service.updateMember(details);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		return (Details) Collections.EMPTY_LIST;
+		return (GillLaneModel) Collections.EMPTY_LIST;
 	}
 	
 }
