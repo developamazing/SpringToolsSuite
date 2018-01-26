@@ -14,11 +14,9 @@ import org.apache.log4j.Logger;
 @Table(name = "ASSS")
 public class ApartmentStatus implements Serializable {
 	
-	private final Logger logger = Logger.getLogger(ApartmentStatus.class);
+	//private final Logger logger = Logger.getLogger(ApartmentStatus.class);
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -99,7 +97,6 @@ public class ApartmentStatus implements Serializable {
 	}
 	@Override
 	public String toString() {
-		logger.info("Inside tostring method");
 		return "ApartmentStatus [buildingNo=" + buildingNo + ", buildingName=" + buildingName + ", totalno=" + totalno
 				+ ", available=" + available + "]";
 	}

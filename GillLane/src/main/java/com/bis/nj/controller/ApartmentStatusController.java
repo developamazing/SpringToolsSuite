@@ -17,7 +17,7 @@ import com.bis.nj.service.AppartmentStatusService;
 @RequestMapping("/as")
 public class ApartmentStatusController {
 	
-	final static Logger logger =Logger.getLogger(ApartmentStatusController.class);
+	//final static Logger logger =Logger.getLogger(ApartmentStatusController.class);
 
 	//logger.info("Nodes and edges are created");
 	@Autowired
@@ -26,26 +26,26 @@ public class ApartmentStatusController {
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public void addBuildings(@RequestBody ApartmentStatus As) {
-		logger.info("Inside addBuildings");
+	//	logger.info("Inside addBuildings");
 		try {
 			service.addBuildings(As);
-			logger.info("Inside addBuildings Service");
+		//	logger.info("Inside addBuildings Service");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			logger.info("Inside addBuildings Exception");
+		//	logger.info("Inside addBuildings Exception");
 		}
 	}
 	
 	@RequestMapping(value="/appartmentdetails",method=RequestMethod.GET)
 	public List<ApartmentStatus> getBuildings() {
-		logger.info("Inside geting list");
+	//	logger.info("Inside geting list");
 		try {
-			logger.info("Inside geting list Service");
+			//logger.info("Inside geting list Service");
 			return service.getBuildingDetails();
 		}
 		catch(Exception e) {
-			logger.info("Inside geting list Exception");
+			//logger.info("Inside geting list Exception");
 			e.printStackTrace();
 		}
 		return  Collections.EMPTY_LIST;
@@ -53,13 +53,13 @@ public class ApartmentStatusController {
 	
 	@RequestMapping(value="/updateappartmentdetails",method=RequestMethod.PUT)
 	public ApartmentStatus updateBuildings(@RequestBody ApartmentStatus As) {
-		logger.info("Inside updating appartments");
+		//logger.info("Inside updating appartments");
 		try {
-			logger.info("Inside updating appartments Service");
+		//	logger.info("Inside updating appartments Service");
 			return service.updateBuildings(As);
 		}
 		catch(Exception e) {
-			logger.info("Inside updating appartments exception");
+			//logger.info("Inside updating appartments exception");
 			e.printStackTrace();
 		}
 		return (ApartmentStatus) Collections.EMPTY_LIST;

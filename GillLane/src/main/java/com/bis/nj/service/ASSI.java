@@ -13,13 +13,13 @@ import com.bis.nj.model.ApartmentStatus;
 @Service
 public class ASSI implements AppartmentStatusService {
 	
-	private final Logger logger = Logger.getLogger(ASSI.class);
+	//private final Logger logger = Logger.getLogger(ASSI.class);
 	@Autowired
 	private ApartmentStatusDao dao;
 
 	@Override
 	public ApartmentStatus addBuildings(ApartmentStatus As) throws Exception {
-		logger.info("Inside addBuildings in Service");
+		//logger.info("Inside addBuildings in Service");
 		// TODO Auto-generated method stub
 		dao.saveAndFlush(As);
 		return As;
@@ -27,7 +27,7 @@ public class ASSI implements AppartmentStatusService {
 
 	@Override
 	public List<ApartmentStatus> getBuildingDetails() throws Exception {
-		logger.info("Inside getting List in Service");
+		//logger.info("Inside getting List in Service");
 		// TODO Auto-generated method stub
 		return dao.findAll();
 	
@@ -35,7 +35,7 @@ public class ASSI implements AppartmentStatusService {
 
 	@Override
 	public ApartmentStatus updateBuildings(ApartmentStatus As) throws Exception {
-		logger.info("Inside update List in Service");
+		//logger.info("Inside update List in Service");
 		// TODO Auto-generated method stub
 		if (Objects.equals(null, dao.findOne(As.getBuildingNo()))) {
 			throw new IllegalArgumentException("no user found");

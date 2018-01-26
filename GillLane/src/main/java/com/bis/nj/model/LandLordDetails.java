@@ -2,9 +2,14 @@ package com.bis.nj.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,23 +19,28 @@ public class LandLordDetails implements Serializable {
 	private static final long serialVersionUID = -5866706886187458559L;
 
 	@Id
-	@Column(name = "BUILDINGNO")
-	private Integer buildingNo;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "LANDLORDID")
+	private Integer landlordid;
+
+	@OneToOne(cascade = CascadeType.ALL, targetEntity = Buildings.class)
+	@JoinColumn(name = "BUILDINGNO")
+	private Buildings buildingNo;
+
 	@Column(name = "APARTMENTNO")
 	private Integer apartmentNo;
 
-	@Column(name ="LANDLORDNAME")
+	@Column(name = "LANDLORDNAME")
 	private String landLordName;
-	
+
 	@Column(name = "PHONENO")
 	private String phoneNo;
 
-	public Integer getBuildingNo() {
+	public Buildings getBuildingNo() {
 		return buildingNo;
 	}
 
-	public void setBuildingNo(Integer buildingNo) {
+	public void setBuildingNo(Buildings buildingNo) {
 		this.buildingNo = buildingNo;
 	}
 
@@ -116,6 +126,4 @@ public class LandLordDetails implements Serializable {
 		return builder.toString();
 	}
 
-
-	
 }

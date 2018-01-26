@@ -1,3 +1,4 @@
+package com.bis.nj.config;
 
 import java.util.Properties;
 
@@ -22,6 +23,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariDataSource;
+
+import oracle.jdbc.pool.OracleDataSource;
  
 @Configuration
 @EnableJpaRepositories(basePackages = "com.bis.nj.dao",
@@ -46,7 +49,7 @@ public class JpaConfiguration {
     @Bean
     public DataSource dataSource() {
         DataSourceProperties dataSourceProperties = dataSourceProperties();
-            HikariDataSource dataSource = (HikariDataSource) DataSourceBuilder
+        HikariDataSource dataSource = (HikariDataSource) DataSourceBuilder
                     .create(dataSourceProperties.getClassLoader())
                     .driverClassName(dataSourceProperties.getDriverClassName())
                     .url(dataSourceProperties.getUrl())
