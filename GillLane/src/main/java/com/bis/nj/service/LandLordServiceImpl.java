@@ -29,7 +29,7 @@ public class LandLordServiceImpl implements LandLordService {
 
 	@Override
 	public LandLordDetails updateLandLordDetails(LandLordDetails details) throws Exception {
-		if (Objects.equals(null, dao.findOne(details.getBuildingNo()))) {
+		if (Objects.equals(null, dao.findOne(details.getApartmentNo()))) {
 			throw new IllegalArgumentException("no user found");
 		}
 		return dao.save(details);

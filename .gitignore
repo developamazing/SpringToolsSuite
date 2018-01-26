@@ -18,3 +18,4 @@ STS_First/.gitignore
 STS_First/mvnw
 STS_First/mvnw.cmd
 STS_First/pom.xml
+.project
